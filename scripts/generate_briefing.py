@@ -35,22 +35,19 @@ NAVER_CLIENT_ID = os.getenv("NAVER_CLIENT_ID", "").strip()
 NAVER_CLIENT_SECRET = os.getenv("NAVER_CLIENT_SECRET", "").strip()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "").strip()
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash-lite").strip()
-NEWS_HOURS = int(os.getenv("NEWS_HOURS", "72"))
+NEWS_HOURS = int(os.getenv("NEWS_HOURS", "40"))
 REQUEST_TIMEOUT = int(os.getenv("REQUEST_TIMEOUT", "25"))
 MAX_ARTICLES = int(os.getenv("MAX_ARTICLES", "70"))
 
 NEWS_QUERIES: list[tuple[str, str]] = [
-    ("금리·채권", "금리"),
-    ("금리·채권", "연준"),
-    ("환율·수급", "환율"),
-    ("증시", "코스피"),
-    ("증시", "미국 증시"),
-    ("AI·반도체", "반도체"),
-    ("AI·반도체", "인공지능"),
-    ("산업", "산업 경제"),
-    ("원자재", "국제유가"),
-    ("정책·거시", "경제 정책"),
-    ("지정학", "국제 정세"),
+    ("금리·채권", '연준 OR FOMC OR 미국 금리 OR 국채금리 OR 한국은행'),
+    ("환율·수급", '원달러 OR 달러인덱스 OR 외국인 수급 OR 환율'),
+    ("증시", '코스피 OR 코스닥 OR 나스닥 OR S&P500 OR 뉴욕증시'),
+    ("AI·반도체", 'AI 반도체 OR HBM OR 엔비디아 OR 삼성전자 OR SK하이닉스'),
+    ("산업", '조선 OR 방산 OR 자동차 OR 바이오 OR 전력기기'),
+    ("원자재", '국제유가 OR WTI OR 금값 OR 구리 가격 OR 천연가스'),
+    ("정책·거시", '물가 OR CPI OR 고용 OR 실업률 OR 관세 OR 재정정책'),
+    ("지정학", '미중 갈등 OR 중동 OR 우크라이나 OR 무역분쟁'),
 ]
 
 PUBLISHER_ALIASES = {
@@ -439,19 +436,18 @@ def call_gemini(articles: list[dict[str, Any]], metrics: list[dict[str, Any]], p
 기사 목록:
 {compact_articles(articles)}
 """.strip()
+
     response = requests.post(
         f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent",
-        headers={
-            "Content-Type": "application/json",
-            "x-goog-api-key": GEMINI_API_KEY,
-        },
+        params={"key": GEMINI_API_KEY},
+        headers={"Content-Type": "application/json"},
         json={
             "contents": [{"parts": [{"text": prompt}]}],
             "generationConfig": {
                 "temperature": 0.2,
                 "maxOutputTokens": 7000,
                 "responseMimeType": "application/json",
-                "responseSchema": briefing_schema(),
+                "responseJsonSchema": briefing_schema(),
             },
         },
         timeout=120,
@@ -570,7 +566,7 @@ def generate(force_sample: bool = False) -> dict[str, Any]:
             analysis = call_gemini(articles, metrics, previous, history_context())
             mode = "live"
         except Exception as exc:
-            analysis_error = f"Gemini 분석 실패: {type(exc).__name__}"
+            analysis_error = f"Gemini 분석 실패: {type(exc).__name__}: {exc}"
             analysis = fallback_analysis(articles)
             mode = "news-only"
     else:
