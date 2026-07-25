@@ -31,15 +31,22 @@ jobs:
       - name: 라이브러리 설치
         run: pip install -r requirements.txt
 
+      - name: Python 문법 검사
+        run: python -m py_compile scripts/generate_briefing.py
+
       - name: 오늘 브리핑 생성
         env:
           NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
           NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-2.5-flash-lite' }}
-          NEWS_HOURS: '40'
+          NEWS_HOURS: '72'
           MAX_ARTICLES: '70'
+          MAX_GEMINI_ARTICLES: '40'
         run: python scripts/generate_briefing.py
+
+      - name: 생성 결과 검증
+        run: python scripts/generate_briefing.py --validate-only
 
       - name: 날짜별 브리핑 저장
         run: |
@@ -50,7 +57,8 @@ jobs:
             echo "변경된 브리핑이 없습니다."
           else
             git commit -m "chore: update morning signal $(date -u +%F)"
-            git push
+            git pull --rebase origin main
+            git push origin main
           fi
 
       - name: GitHub Pages 설정
