@@ -440,7 +440,7 @@ def call_gemini(articles: list[dict[str, Any]], metrics: list[dict[str, Any]], p
 {compact_articles(articles)}
 """.strip()
 
-   response = requests.post(
+    response = requests.post(
     f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent",
     headers={
         "Content-Type": "application/json",
