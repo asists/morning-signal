@@ -12,6 +12,7 @@ import json
 import os
 import re
 import sys
+import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timedelta
 from email.utils import parsedate_to_datetime
@@ -30,24 +31,29 @@ LATEST_FILE = DATA_DIR / "latest.json"
 INDEX_FILE = DATA_DIR / "index.json"
 SAMPLE_FILE = DATA_DIR / "sample.json"
 KST = ZoneInfo("Asia/Seoul")
+SCRIPT_VERSION = "1.1.1"
 
 NAVER_CLIENT_ID = os.getenv("NAVER_CLIENT_ID", "").strip()
 NAVER_CLIENT_SECRET = os.getenv("NAVER_CLIENT_SECRET", "").strip()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "").strip()
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash-lite").strip()
-NEWS_HOURS = int(os.getenv("NEWS_HOURS", "40"))
+NEWS_HOURS = int(os.getenv("NEWS_HOURS", "72"))
 REQUEST_TIMEOUT = int(os.getenv("REQUEST_TIMEOUT", "25"))
 MAX_ARTICLES = int(os.getenv("MAX_ARTICLES", "70"))
+MAX_GEMINI_ARTICLES = int(os.getenv("MAX_GEMINI_ARTICLES", "40"))
 
 NEWS_QUERIES: list[tuple[str, str]] = [
-    ("금리·채권", '연준 OR FOMC OR 미국 금리 OR 국채금리 OR 한국은행'),
-    ("환율·수급", '원달러 OR 달러인덱스 OR 외국인 수급 OR 환율'),
-    ("증시", '코스피 OR 코스닥 OR 나스닥 OR S&P500 OR 뉴욕증시'),
-    ("AI·반도체", 'AI 반도체 OR HBM OR 엔비디아 OR 삼성전자 OR SK하이닉스'),
-    ("산업", '조선 OR 방산 OR 자동차 OR 바이오 OR 전력기기'),
-    ("원자재", '국제유가 OR WTI OR 금값 OR 구리 가격 OR 천연가스'),
-    ("정책·거시", '물가 OR CPI OR 고용 OR 실업률 OR 관세 OR 재정정책'),
-    ("지정학", '미중 갈등 OR 중동 OR 우크라이나 OR 무역분쟁'),
+    ("금리·채권", "금리"),
+    ("금리·채권", "연준"),
+    ("환율·수급", "환율"),
+    ("증시", "코스피"),
+    ("증시", "미국 증시"),
+    ("AI·반도체", "반도체"),
+    ("AI·반도체", "인공지능"),
+    ("산업", "산업 경제"),
+    ("원자재", "국제유가"),
+    ("정책·거시", "경제 정책"),
+    ("지정학", "국제 정세"),
 ]
 
 PUBLISHER_ALIASES = {
@@ -124,8 +130,31 @@ def infer_publisher(url: str) -> str:
     return domain.removeprefix("news.").split(".")[0].upper()
 
 
+def request_with_retry(method: str, url: str, *, attempts: int = 3, **kwargs: Any) -> requests.Response:
+    """일시적인 네트워크·서버 오류만 짧게 재시도합니다."""
+    last_error: Exception | None = None
+    for attempt in range(1, attempts + 1):
+        try:
+            response = requests.request(method, url, **kwargs)
+            if response.status_code == 429 or response.status_code >= 500:
+                if attempt < attempts:
+                    time.sleep(1.5 * attempt)
+                    continue
+            return response
+        except (requests.Timeout, requests.ConnectionError) as exc:
+            last_error = exc
+            if attempt < attempts:
+                time.sleep(1.5 * attempt)
+                continue
+            raise
+    if last_error:
+        raise last_error
+    raise RuntimeError("API 요청 재시도에 실패했습니다.")
+
+
 def fetch_naver_group(category: str, query: str) -> list[dict[str, Any]]:
-    response = requests.get(
+    response = request_with_retry(
+        "GET",
         "https://naverapihub.apigw.ntruss.com/search/v1/news",
         params={"query": query, "display": 40, "start": 1, "sort": "date"},
         headers={
@@ -157,27 +186,11 @@ def fetch_naver_group(category: str, query: str) -> list[dict[str, Any]]:
     return result
 
 
-def collect_news() -> tuple[list[dict[str, Any]], list[str]]:
-    articles: list[dict[str, Any]] = []
-    errors: list[str] = []
-    with ThreadPoolExecutor(max_workers=len(NEWS_QUERIES)) as pool:
-        futures = {
-            pool.submit(fetch_naver_group, category, query): category
-            for category, query in NEWS_QUERIES
-        }
-        for future in as_completed(futures):
-            category = futures[future]
-            try:
-                articles.extend(future.result())
-            except Exception as exc:
-                errors.append(f"{category}: {type(exc).__name__}")
-
-    if not articles:
-        raise RuntimeError("네이버 뉴스 검색 결과를 한 건도 가져오지 못했습니다.")
-
-    cutoff = now_kst() - timedelta(hours=NEWS_HOURS)
-    articles = [a for a in articles if datetime.fromisoformat(a["published_at"]) >= cutoff]
-    articles.sort(key=lambda a: a["published_at"], reverse=True)
+def dedupe_articles(articles: list[dict[str, Any]], hours: int | None) -> list[dict[str, Any]]:
+    if hours is not None:
+        cutoff = now_kst() - timedelta(hours=hours)
+        articles = [a for a in articles if datetime.fromisoformat(a["published_at"]) >= cutoff]
+    articles = sorted(articles, key=lambda a: a["published_at"], reverse=True)
 
     unique: list[dict[str, Any]] = []
     seen_links: set[str] = set()
@@ -189,13 +202,47 @@ def collect_news() -> tuple[list[dict[str, Any]], list[str]]:
             continue
         seen_links.add(link_key)
         seen_titles.add(title_key)
+        article = dict(article)
         article["id"] = len(unique) + 1
         unique.append(article)
         if len(unique) >= MAX_ARTICLES:
             break
-    if len(unique) < 3:
-        raise RuntimeError("분석할 수 있는 고유 뉴스가 3건 미만입니다.")
-    return unique, errors
+    return unique
+
+
+def collect_news() -> tuple[list[dict[str, Any]], list[str]]:
+    """최근 72시간을 우선 사용하고, 부족하면 7일·전체 결과 순으로 자동 확장합니다."""
+    articles: list[dict[str, Any]] = []
+    errors: list[str] = []
+    with ThreadPoolExecutor(max_workers=len(NEWS_QUERIES)) as pool:
+        futures = {
+            pool.submit(fetch_naver_group, category, query): f"{category}/{query}"
+            for category, query in NEWS_QUERIES
+        }
+        for future in as_completed(futures):
+            label = futures[future]
+            try:
+                articles.extend(future.result())
+            except Exception as exc:
+                errors.append(f"{label}: {type(exc).__name__}")
+
+    if not articles:
+        errors.append("네이버 뉴스 검색 결과를 가져오지 못했습니다.")
+        return [], errors
+
+    recent = dedupe_articles(articles, NEWS_HOURS)
+    if len(recent) >= 3:
+        return recent, errors
+
+    weekly = dedupe_articles(articles, 24 * 7)
+    if len(weekly) >= 3:
+        errors.append(f"최근 {NEWS_HOURS}시간 뉴스가 부족해 최근 7일 범위로 확장했습니다.")
+        return weekly, errors
+
+    newest = dedupe_articles(articles, None)
+    if newest:
+        errors.append(f"고유 뉴스가 {len(newest)}건뿐이어서 확보된 기사만 사용했습니다.")
+    return newest, errors
 
 
 def fetch_yahoo_metric(symbol: str, label: str, kind: str = "number", divisor: float = 1.0) -> dict[str, Any] | None:
@@ -398,6 +445,22 @@ def briefing_schema() -> dict[str, Any]:
     }
 
 
+def safe_api_error(exc: Exception) -> str:
+    """API 키·요청 URL을 제외하고 상태 코드와 짧은 오류명만 남깁니다."""
+    if isinstance(exc, requests.HTTPError) and exc.response is not None:
+        status = exc.response.status_code
+        code = "HTTP_ERROR"
+        try:
+            body = exc.response.json()
+            error = body.get("error") or {}
+            code = clean_text(error.get("status") or error.get("code") or code)
+        except Exception:
+            pass
+        code = re.sub(r"[^0-9A-Za-z_.-]", "_", code)[:80]
+        return f"HTTP {status} · {code}"
+    return type(exc).__name__
+
+
 def call_gemini(articles: list[dict[str, Any]], metrics: list[dict[str, Any]], previous: dict[str, Any] | None, history: list[dict[str, Any]]) -> dict[str, Any]:
     previous_context: dict[str, Any] | str = "없음"
     if previous and (previous.get("meta") or {}).get("mode") != "sample":
@@ -408,6 +471,7 @@ def call_gemini(articles: list[dict[str, Any]], metrics: list[dict[str, Any]], p
             "stance": (previous.get("stance") or {}).get("title"),
         }
 
+    schema_text = json.dumps(briefing_schema(), ensure_ascii=False)
     prompt = f"""
 당신은 한국 주식 투자자를 위한 Morning Signal 편집자다.
 아래 제공된 뉴스 제목·요약과 시장 지표만 근거로 한국어 아침 브리핑을 작성하라.
@@ -423,6 +487,10 @@ def call_gemini(articles: list[dict[str, Any]], metrics: list[dict[str, Any]], p
 - risks는 오늘의 기준 시나리오를 깨뜨릴 수 있는 반대 요인을 쓴다.
 - weekly는 최근 7일 데이터가 부족하면 확보된 기간만 분석했다고 명시한다.
 - monthly는 최근 30일 데이터가 부족하면 데이터 축적 중임을 명시한다.
+- 반드시 JSON 객체 하나만 출력하고, 아래 JSON Schema의 키와 자료형을 지킨다.
+
+JSON Schema:
+{schema_text}
 
 시장 지표:
 {json.dumps(metrics, ensure_ascii=False)}
@@ -434,20 +502,22 @@ def call_gemini(articles: list[dict[str, Any]], metrics: list[dict[str, Any]], p
 {json.dumps(history, ensure_ascii=False)}
 
 기사 목록:
-{compact_articles(articles)}
+{compact_articles(articles[:MAX_GEMINI_ARTICLES])}
 """.strip()
 
-    response = requests.post(
+    response = request_with_retry(
+        "POST",
         f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent",
-        params={"key": GEMINI_API_KEY},
-        headers={"Content-Type": "application/json"},
+        headers={
+            "Content-Type": "application/json",
+            "x-goog-api-key": GEMINI_API_KEY,
+        },
         json={
             "contents": [{"parts": [{"text": prompt}]}],
             "generationConfig": {
                 "temperature": 0.2,
                 "maxOutputTokens": 7000,
                 "responseMimeType": "application/json",
-                "responseJsonSchema": briefing_schema(),
             },
         },
         timeout=120,
@@ -456,12 +526,15 @@ def call_gemini(articles: list[dict[str, Any]], metrics: list[dict[str, Any]], p
     payload = response.json()
     candidates = payload.get("candidates") or []
     if not candidates:
-        raise RuntimeError(f"Gemini 응답에 후보가 없습니다: {payload.get('promptFeedback', {})}")
+        raise RuntimeError("Gemini 응답에 후보가 없습니다.")
     parts = candidates[0].get("content", {}).get("parts", [])
-    text = "".join(part.get("text", "") for part in parts)
-    if not text:
+    output_text = "".join(part.get("text", "") for part in parts)
+    if not output_text:
         raise RuntimeError("Gemini가 분석 JSON을 반환하지 않았습니다.")
-    return json.loads(text)
+    analysis = json.loads(output_text)
+    if not isinstance(analysis, dict):
+        raise RuntimeError("Gemini 분석 결과가 JSON 객체가 아닙니다.")
+    return analysis
 
 
 def fallback_analysis(articles: list[dict[str, Any]]) -> dict[str, Any]:
@@ -549,6 +622,25 @@ def write_sample_mode(message: str) -> None:
     update_index()
 
 
+
+def redact_secrets(value: Any) -> Any:
+    secrets = [secret for secret in (NAVER_CLIENT_ID, NAVER_CLIENT_SECRET, GEMINI_API_KEY) if secret]
+    if isinstance(value, dict):
+        return {key: redact_secrets(item) for key, item in value.items()}
+    if isinstance(value, list):
+        return [redact_secrets(item) for item in value]
+    if isinstance(value, str):
+        redacted = value
+        for secret in secrets:
+            redacted = redacted.replace(secret, "[REDACTED]")
+        return redacted
+    return value
+
+
+def has_valid_previous(previous: dict[str, Any] | None) -> bool:
+    return bool(previous and len(previous.get("stories", [])) == 3 and previous.get("headline"))
+
+
 def generate(force_sample: bool = False) -> dict[str, Any]:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     HISTORY_DIR.mkdir(parents=True, exist_ok=True)
@@ -559,14 +651,38 @@ def generate(force_sample: bool = False) -> dict[str, Any]:
         return read_json(LATEST_FILE) or {}
 
     articles, collection_errors = collect_news()
+    generated_at = now_kst()
+
+    if not articles:
+        if has_valid_previous(previous):
+            stale = json.loads(json.dumps(previous, ensure_ascii=False))
+            stale["meta"] = {
+                **(stale.get("meta") or {}),
+                "mode": "stale",
+                "generated_at": generated_at.isoformat(),
+                "message": "새 뉴스를 가져오지 못해 직전 브리핑을 유지합니다.",
+                "collection_warnings": collection_errors,
+                "error": "네이버 뉴스 수집 실패",
+            }
+            stale = redact_secrets(stale)
+            write_json(LATEST_FILE, stale)
+            update_index()
+            return stale
+        write_sample_mode("새 뉴스를 가져오지 못해 샘플 브리핑을 표시합니다.")
+        return read_json(LATEST_FILE) or {}
+
     metrics = collect_market_metrics()
     analysis_error = ""
-    if GEMINI_API_KEY:
+    if len(articles) < 3:
+        analysis_error = f"고유 뉴스가 {len(articles)}건뿐이어서 기본 요약을 사용했습니다."
+        analysis = fallback_analysis(articles)
+        mode = "news-only"
+    elif GEMINI_API_KEY:
         try:
             analysis = call_gemini(articles, metrics, previous, history_context())
             mode = "live"
         except Exception as exc:
-            analysis_error = f"Gemini 분석 실패: {type(exc).__name__}: {exc}"
+            analysis_error = f"Gemini 분석 실패: {safe_api_error(exc)}"
             analysis = fallback_analysis(articles)
             mode = "news-only"
     else:
@@ -575,7 +691,6 @@ def generate(force_sample: bool = False) -> dict[str, Any]:
         mode = "news-only"
 
     enrich_sources(analysis, articles)
-    generated_at = now_kst()
     payload: dict[str, Any] = {
         "meta": {
             "mode": mode,
@@ -589,6 +704,7 @@ def generate(force_sample: bool = False) -> dict[str, Any]:
         **analysis,
         "metrics": metrics,
     }
+    payload = redact_secrets(payload)
     date_key = generated_at.strftime("%Y-%m-%d")
     write_json(LATEST_FILE, payload)
     write_json(HISTORY_DIR / f"{date_key}.json", payload)
@@ -619,6 +735,7 @@ def main() -> int:
         meta = payload.get("meta", {})
         print(json.dumps({
             "ok": True,
+            "script_version": SCRIPT_VERSION,
             "mode": meta.get("mode"),
             "generated_at": meta.get("generated_at"),
             "article_count": meta.get("article_count"),
