@@ -126,11 +126,11 @@ def infer_publisher(url: str) -> str:
 
 def fetch_naver_group(category: str, query: str) -> list[dict[str, Any]]:
     response = requests.get(
-        "https://openapi.naver.com/v1/search/news.json",
+        "https://naverapihub.apigw.ntruss.com/search/v1/news",
         params={"query": query, "display": 40, "start": 1, "sort": "date"},
         headers={
-            "X-Naver-Client-Id": NAVER_CLIENT_ID,
-            "X-Naver-Client-Secret": NAVER_CLIENT_SECRET,
+            "X-NCP-APIGW-API-KEY-ID": NAVER_CLIENT_ID,
+            "X-NCP-APIGW-API-KEY": NAVER_CLIENT_SECRET,
             "User-Agent": "MorningSignalPages/1.0",
         },
         timeout=REQUEST_TIMEOUT,
