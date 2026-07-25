@@ -31,7 +31,7 @@ LATEST_FILE = DATA_DIR / "latest.json"
 INDEX_FILE = DATA_DIR / "index.json"
 SAMPLE_FILE = DATA_DIR / "sample.json"
 KST = ZoneInfo("Asia/Seoul")
-SCRIPT_VERSION = "1.1.1"
+SCRIPT_VERSION = "1.1.2"
 
 NAVER_CLIENT_ID = os.getenv("NAVER_CLIENT_ID", "").strip()
 NAVER_CLIENT_SECRET = os.getenv("NAVER_CLIENT_SECRET", "").strip()
@@ -471,7 +471,6 @@ def call_gemini(articles: list[dict[str, Any]], metrics: list[dict[str, Any]], p
             "stance": (previous.get("stance") or {}).get("title"),
         }
 
-    schema_text = json.dumps(briefing_schema(), ensure_ascii=False)
     prompt = f"""
 당신은 한국 주식 투자자를 위한 Morning Signal 편집자다.
 아래 제공된 뉴스 제목·요약과 시장 지표만 근거로 한국어 아침 브리핑을 작성하라.
@@ -487,10 +486,7 @@ def call_gemini(articles: list[dict[str, Any]], metrics: list[dict[str, Any]], p
 - risks는 오늘의 기준 시나리오를 깨뜨릴 수 있는 반대 요인을 쓴다.
 - weekly는 최근 7일 데이터가 부족하면 확보된 기간만 분석했다고 명시한다.
 - monthly는 최근 30일 데이터가 부족하면 데이터 축적 중임을 명시한다.
-- 반드시 JSON 객체 하나만 출력하고, 아래 JSON Schema의 키와 자료형을 지킨다.
-
-JSON Schema:
-{schema_text}
+- 반드시 JSON 객체 하나만 출력하고, API가 요구한 JSON Schema의 키와 자료형을 지킨다.
 
 시장 지표:
 {json.dumps(metrics, ensure_ascii=False)}
@@ -515,8 +511,9 @@ JSON Schema:
         json={
             "contents": [{"parts": [{"text": prompt}]}],
             "generationConfig": {
-                "maxOutputTokens": 7000,
+                "maxOutputTokens": 16000,
                 "responseMimeType": "application/json",
+                "responseJsonSchema": briefing_schema(),
             },
         },
         timeout=120,
@@ -526,11 +523,33 @@ JSON Schema:
     candidates = payload.get("candidates") or []
     if not candidates:
         raise RuntimeError("Gemini 응답에 후보가 없습니다.")
-    parts = candidates[0].get("content", {}).get("parts", [])
-    output_text = "".join(part.get("text", "") for part in parts)
+    candidate = candidates[0]
+    finish_reason = clean_text(candidate.get("finishReason", ""))
+    parts = candidate.get("content", {}).get("parts", [])
+    output_text = "".join(part.get("text", "") for part in parts).strip()
     if not output_text:
-        raise RuntimeError("Gemini가 분석 JSON을 반환하지 않았습니다.")
-    analysis = json.loads(output_text)
+        raise RuntimeError(f"Gemini가 분석 JSON을 반환하지 않았습니다. 종료 사유: {finish_reason or 'unknown'}")
+
+    # 일부 모델이 JSON을 마크다운 코드 블록으로 감싸는 경우를 안전하게 정리합니다.
+    cleaned = output_text
+    if cleaned.startswith("```"):
+        cleaned = re.sub(r"^```(?:json)?\s*", "", cleaned, flags=re.IGNORECASE)
+        cleaned = re.sub(r"\s*```$", "", cleaned)
+    cleaned = cleaned.strip()
+
+    try:
+        analysis = json.loads(cleaned)
+    except json.JSONDecodeError as exc:
+        # 앞뒤 설명이 섞인 경우 첫 JSON 객체만 한 번 더 추출합니다.
+        start = cleaned.find("{")
+        end = cleaned.rfind("}")
+        if start >= 0 and end > start:
+            analysis = json.loads(cleaned[start : end + 1])
+        else:
+            raise RuntimeError(
+                f"Gemini JSON 파싱 실패 · 종료 사유: {finish_reason or 'unknown'} · 위치: {exc.pos}"
+            ) from exc
+
     if not isinstance(analysis, dict):
         raise RuntimeError("Gemini 분석 결과가 JSON 객체가 아닙니다.")
     return analysis
