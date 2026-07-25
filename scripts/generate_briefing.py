@@ -443,7 +443,10 @@ def call_gemini(articles: list[dict[str, Any]], metrics: list[dict[str, Any]], p
     response = requests.post(
         f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent",
         params={"key": GEMINI_API_KEY},
-        headers={"Content-Type": "application/json"},
+        headers={
+    "Content-Type": "application/json",
+    "x-goog-api-key": GEMINI_API_KEY,
+},
         json={
             "contents": [{"parts": [{"text": prompt}]}],
             "generationConfig": {
@@ -569,7 +572,7 @@ def generate(force_sample: bool = False) -> dict[str, Any]:
             analysis = call_gemini(articles, metrics, previous, history_context())
             mode = "live"
         except Exception as exc:
-            analysis_error = f"Gemini 분석 실패: {type(exc).__name__}: {exc}"
+            analysis_error = f"Gemini 분석 실패: {type(exc).__name__}"
             analysis = fallback_analysis(articles)
             mode = "news-only"
     else:
