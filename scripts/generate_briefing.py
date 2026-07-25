@@ -35,7 +35,7 @@ NAVER_CLIENT_ID = os.getenv("NAVER_CLIENT_ID", "").strip()
 NAVER_CLIENT_SECRET = os.getenv("NAVER_CLIENT_SECRET", "").strip()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "").strip()
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash-lite").strip()
-NEWS_HOURS = int(os.getenv("NEWS_HOURS", "40"))
+NEWS_HOURS = int(os.getenv("NEWS_HOURS", "72"))
 REQUEST_TIMEOUT = int(os.getenv("REQUEST_TIMEOUT", "25"))
 MAX_ARTICLES = int(os.getenv("MAX_ARTICLES", "70"))
 
