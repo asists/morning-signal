@@ -439,24 +439,23 @@ def call_gemini(articles: list[dict[str, Any]], metrics: list[dict[str, Any]], p
 기사 목록:
 {compact_articles(articles)}
 """.strip()
-
     response = requests.post(
-    f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent",
-    headers={
-        "Content-Type": "application/json",
-        "x-goog-api-key": GEMINI_API_KEY,
-    },
-    json={
-        "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {
-            "temperature": 0.2,
-            "maxOutputTokens": 7000,
-            "responseMimeType": "application/json",
-            "responseSchema": briefing_schema(),
+        f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent",
+        headers={
+            "Content-Type": "application/json",
+            "x-goog-api-key": GEMINI_API_KEY,
         },
-    },
-    timeout=120,
-)
+        json={
+            "contents": [{"parts": [{"text": prompt}]}],
+            "generationConfig": {
+                "temperature": 0.2,
+                "maxOutputTokens": 7000,
+                "responseMimeType": "application/json",
+                "responseSchema": briefing_schema(),
+            },
+        },
+        timeout=120,
+    )
     response.raise_for_status()
     payload = response.json()
     candidates = payload.get("candidates") or []
