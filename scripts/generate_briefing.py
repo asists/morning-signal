@@ -40,14 +40,17 @@ REQUEST_TIMEOUT = int(os.getenv("REQUEST_TIMEOUT", "25"))
 MAX_ARTICLES = int(os.getenv("MAX_ARTICLES", "70"))
 
 NEWS_QUERIES: list[tuple[str, str]] = [
-    ("금리·채권", '연준 OR FOMC OR 미국 금리 OR 국채금리 OR 한국은행'),
-    ("환율·수급", '원달러 OR 달러인덱스 OR 외국인 수급 OR 환율'),
-    ("증시", '코스피 OR 코스닥 OR 나스닥 OR S&P500 OR 뉴욕증시'),
-    ("AI·반도체", 'AI 반도체 OR HBM OR 엔비디아 OR 삼성전자 OR SK하이닉스'),
-    ("산업", '조선 OR 방산 OR 자동차 OR 바이오 OR 전력기기'),
-    ("원자재", '국제유가 OR WTI OR 금값 OR 구리 가격 OR 천연가스'),
-    ("정책·거시", '물가 OR CPI OR 고용 OR 실업률 OR 관세 OR 재정정책'),
-    ("지정학", '미중 갈등 OR 중동 OR 우크라이나 OR 무역분쟁'),
+    ("금리·채권", "금리"),
+    ("금리·채권", "연준"),
+    ("환율·수급", "환율"),
+    ("증시", "코스피"),
+    ("증시", "미국 증시"),
+    ("AI·반도체", "반도체"),
+    ("AI·반도체", "인공지능"),
+    ("산업", "산업 경제"),
+    ("원자재", "국제유가"),
+    ("정책·거시", "경제 정책"),
+    ("지정학", "국제 정세"),
 ]
 
 PUBLISHER_ALIASES = {
