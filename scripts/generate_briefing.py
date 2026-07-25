@@ -515,7 +515,6 @@ JSON Schema:
         json={
             "contents": [{"parts": [{"text": prompt}]}],
             "generationConfig": {
-                "temperature": 0.2,
                 "maxOutputTokens": 7000,
                 "responseMimeType": "application/json",
             },
