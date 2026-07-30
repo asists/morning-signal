@@ -31,7 +31,7 @@ LATEST_FILE = DATA_DIR / "latest.json"
 INDEX_FILE = DATA_DIR / "index.json"
 SAMPLE_FILE = DATA_DIR / "sample.json"
 KST = ZoneInfo("Asia/Seoul")
-SCRIPT_VERSION = "1.1.2"
+SCRIPT_VERSION = "1.1.3"
 
 NAVER_CLIENT_ID = os.getenv("NAVER_CLIENT_ID", "").strip()
 NAVER_CLIENT_SECRET = os.getenv("NAVER_CLIENT_SECRET", "").strip()
@@ -246,6 +246,12 @@ def collect_news() -> tuple[list[dict[str, Any]], list[str]]:
 
 
 def fetch_yahoo_metric(symbol: str, label: str, kind: str = "number", divisor: float = 1.0) -> dict[str, Any] | None:
+    """Yahoo Finance의 현재값과 바로 전 거래일 종가를 비교합니다.
+
+    chartPreviousClose는 요청한 차트 범위(현재 5일)의 시작 전 값이 될 수 있으므로
+    일간 등락률 계산에 사용하지 않습니다. previousClose를 우선 사용하고,
+    없을 때만 일봉 배열에서 직전 거래일 값을 찾습니다.
+    """
     try:
         response = requests.get(
             f"https://query1.finance.yahoo.com/v8/finance/chart/{quote(symbol, safe='')}",
@@ -256,17 +262,54 @@ def fetch_yahoo_metric(symbol: str, label: str, kind: str = "number", divisor: f
         response.raise_for_status()
         result = response.json()["chart"]["result"][0]
         meta = result.get("meta", {})
-        value = meta.get("regularMarketPrice")
-        previous = meta.get("chartPreviousClose") or meta.get("previousClose")
-        if value is None:
-            closes = [x for x in result.get("indicators", {}).get("quote", [{}])[0].get("close", []) if x is not None]
-            value = closes[-1] if closes else None
-            previous = closes[-2] if len(closes) > 1 else previous
-        if value is None:
+
+        timestamps = result.get("timestamp") or []
+        closes_raw = result.get("indicators", {}).get("quote", [{}])[0].get("close", []) or []
+        points = [
+            (int(ts), float(close))
+            for ts, close in zip(timestamps, closes_raw)
+            if ts is not None and close is not None
+        ]
+
+        raw_value = meta.get("regularMarketPrice")
+        if raw_value is None and points:
+            raw_value = points[-1][1]
+        if raw_value is None:
             return None
-        value = float(value) / divisor
-        previous = float(previous) / divisor if previous else None
-        change_pct = ((value - previous) / previous * 100) if previous else None
+        raw_value = float(raw_value)
+
+        # previousClose가 실제 전일 종가입니다.
+        # chartPreviousClose는 5일 차트의 시작 기준값일 수 있어 사용하지 않습니다.
+        raw_previous = meta.get("previousClose")
+
+        if raw_previous is None and points:
+            market_ts = meta.get("regularMarketTime")
+            exchange_tz_name = meta.get("exchangeTimezoneName") or "UTC"
+            try:
+                exchange_tz = ZoneInfo(exchange_tz_name)
+            except Exception:
+                exchange_tz = ZoneInfo("UTC")
+
+            if market_ts is not None:
+                market_date = datetime.fromtimestamp(int(market_ts), tz=exchange_tz).date()
+                last_point_date = datetime.fromtimestamp(points[-1][0], tz=exchange_tz).date()
+
+                # 마지막 일봉이 오늘의 진행 중인 봉이면 그 앞 봉이 전일 종가입니다.
+                if last_point_date == market_date and len(points) >= 2:
+                    raw_previous = points[-2][1]
+                else:
+                    raw_previous = points[-1][1]
+            elif len(points) >= 2:
+                raw_previous = points[-2][1]
+
+        raw_previous = float(raw_previous) if raw_previous not in (None, 0) else None
+        change_pct = (
+            (raw_value - raw_previous) / raw_previous * 100
+            if raw_previous is not None
+            else None
+        )
+
+        value = raw_value / divisor
         if kind == "percent":
             value_text = f"{value:.2f}%"
         elif kind == "won":
@@ -275,13 +318,23 @@ def fetch_yahoo_metric(symbol: str, label: str, kind: str = "number", divisor: f
             value_text = f"${value:,.2f}"
         else:
             value_text = f"{value:,.2f}"
+
+        market_ts = meta.get("regularMarketTime")
+        as_of = (
+            datetime.fromtimestamp(int(market_ts), tz=ZoneInfo("UTC"))
+            .astimezone(KST)
+            .isoformat()
+            if market_ts is not None
+            else now_kst().isoformat()
+        )
+
         return {
             "label": label,
             "value": value_text,
             "change": f"{change_pct:+.2f}%" if change_pct is not None else "",
             "tone": "positive" if (change_pct or 0) >= 0 else "negative",
             "source": "Yahoo Finance",
-            "as_of": now_kst().isoformat(),
+            "as_of": as_of,
         }
     except Exception:
         return None
@@ -326,7 +379,7 @@ def collect_market_metrics() -> list[dict[str, Any]]:
         ("^IXIC", "NASDAQ", "number", 1.0),
         ("^KS11", "KOSPI", "number", 1.0),
         ("^KQ11", "KOSDAQ", "number", 1.0),
-        ("^TNX", "미 10년물", "percent", 10.0),
+        ("^TNX", "미 10년물", "percent", 1.0),
         ("DX-Y.NYB", "달러인덱스", "number", 1.0),
         ("KRW=X", "원/달러", "won", 1.0),
         ("CL=F", "WTI", "oil", 1.0),
