@@ -1,0 +1,259 @@
+{
+  "meta": {
+    "mode": "live",
+    "generated_at": "2026-10-13T12:27:37.238461+09:00",
+    "article_count": 70,
+    "model": "gemini-3.5-flash-lite",
+    "message": "실제 뉴스와 Gemini 분석이 연결되었습니다.",
+    "collection_warnings": [],
+    "error": ""
+  },
+  "headline": "코스피 6000선 붕괴 및 폭락 속 반도체 밸류체인 점검",
+  "deck": "코스피가 7% 넘게 급락하며 6000선이 무너진 가운데, 대외 매크로 변동성과 지정학 리스크가 증시를 압박하고 있습니다. 다만 IMF는 AI 수요 확산에 힘입어 한국 성장률을 상향 조정했습니다.",
+  "highlight": "코스피가 7% 넘게 급락하며 6000선이 무너진 가운데",
+  "change_from_yesterday": "전 거래일 대비 코스피는 -6.95%(5,940.68), 코스닥은 -4.59%(810.20)를 기록했습니다. 미 10년물 국채금리는 5.24%, 원/달러 환율은 1,343.3원을 기록했습니다.",
+  "stories": [
+    {
+      "category": "증시·수급",
+      "impact": "높음",
+      "title": "코스피 7%대 폭락하며 6000선 붕괴…대외 매크로 경계감 확산",
+      "summary": "코스피가 장중 7% 넘게 급락하며 6000선이 무너졌으며, 주요 증권사 목표가 하향 등 투자심리가 급격히 위축되었습니다.",
+      "why": "글로벌 자산시장 조정과 미 국채금리 부담, 지정학적 리스크가 복합적으로 작용하여 패닉셀을 유발했습니다.",
+      "korea": "지수 급락으로 인한 외국인 및 기관의 수급 이탈 우려가 커지며 변동성이 극대화되고 있습니다.",
+      "investor_view": "실질적인 수급 공백 여부와 6000선 안착 여부를 확인하며 보수적으로 리스크를 관리해야 합니다.",
+      "sources": [
+        {
+          "id": 14,
+          "publisher": "NEWS1",
+          "title": "코스피 7%대 폭락에 개미들 '패닉'",
+          "url": "https://www.news1.kr/photos/8155954",
+          "published_at": "2026-10-13T12:24:00+09:00"
+        },
+        {
+          "id": 15,
+          "publisher": "NEWS1",
+          "title": "코스피 6000 붕괴",
+          "url": "https://www.news1.kr/photos/8155979",
+          "published_at": "2026-10-13T12:24:00+09:00"
+        },
+        {
+          "id": 16,
+          "publisher": "NEWS1",
+          "title": "코스피 급락에 무너진 6000선",
+          "url": "https://www.news1.kr/photos/8155944",
+          "published_at": "2026-10-13T12:24:00+09:00"
+        },
+        {
+          "id": 17,
+          "publisher": "NEWS1",
+          "title": "6천피마저 깨졌다…코스피 7%대 폭락에 개미들 '패닉'",
+          "url": "https://www.news1.kr/photos/8155961",
+          "published_at": "2026-10-13T12:24:00+09:00"
+        },
+        {
+          "id": 39,
+          "publisher": "NEWSTNT",
+          "title": "[특징주] 현대모비스, 증권사 3곳 목표가 줄하향",
+          "url": "https://www.newstnt.com/news/articleView.html?idxno=722596",
+          "published_at": "2026-10-13T12:18:00+09:00"
+        }
+      ],
+      "source_count": 5
+    },
+    {
+      "category": "AI·반도체",
+      "impact": "높음",
+      "title": "마이크로소프트 HBM4 성능 강조 및 IMF 한국 성장률 3.3% 상향",
+      "summary": "마이크로소프트의 신형 AI 반도체에 HBM4 성능이 핵심으로 강조되었으며, IMF는 AI 하드웨어 수요를 근거로 한국 성장률을 3.3%로 상향했습니다.",
+      "why": "글로벌 빅테크의 AI 인프라 투자 지속과 반도체 수출 호조가 펀더멘털을 뒷받침하고 있습니다.",
+      "korea": "반도체 투톱 및 소부장 밸류체인에 긍정적 모멘텀을 제공합니다.",
+      "investor_view": "지수 급락 속에서도 실적이 담보되는 AI 반도체 밸류체인의 수급과 실적 가시성을 선별적으로 확인해야 합니다.",
+      "sources": [
+        {
+          "id": 29,
+          "publisher": "TF",
+          "title": "IMF, 韓 성장률 3.3%로 상향…반도체 수요 중동 악재 눌렀다",
+          "url": "https://news.tf.co.kr/read/economy/2375600.htm",
+          "published_at": "2026-10-13T12:18:00+09:00"
+        },
+        {
+          "id": 31,
+          "publisher": "BUSINESSPOST",
+          "title": "MS 신형 AI 반도체에 'HBM4' 성능 핵심으로 앞세워, 삼성전자 SK하이닉스...",
+          "url": "https://www.businesspost.co.kr/BP?command=article_view&num=449172",
+          "published_at": "2026-10-13T12:18:00+09:00"
+        }
+      ],
+      "source_count": 2
+    },
+    {
+      "category": "지정학·산업",
+      "impact": "보통",
+      "title": "사우디 피격 등 중동 지정학 리스크 부각 및 용인 반도체 클러스터 공사 수주",
+      "summary": "예멘 반군의 사우디 공격 등으로 지정학적 긴장이 고조된 가운데, 대우건설이 용인 반도체 클러스터 국가산단 공사를 수주했습니다.",
+      "why": "중동 불안에 따른 에너지 및 공급망 불확실성이 커지는 동시에 국내 첨단 인프라 투자는 지속되고 있습니다.",
+      "korea": "에너지 가격 변동성과 방위산업, 인프라 건설 업종의 셈법이 복잡해지고 있습니다.",
+      "investor_view": "지정학적 리스크에 따른 원자재 및 환율 변동을 모니터링해야 합니다.",
+      "sources": [
+        {
+          "id": 2,
+          "publisher": "이데일리",
+          "title": "원유 오르고 경유 내리고…16일 최고가격 시험대",
+          "url": "http://www.smedaily.co.kr/news/articleView.html?idxno=364569",
+          "published_at": "2026-10-13T12:26:00+09:00"
+        },
+        {
+          "id": 20,
+          "publisher": "뉴시스",
+          "title": "\"사우디, 후티반군 공항 공격에 강경 대응 천명…선택지는 제한적\"",
+          "url": "https://www.newsis.com/view/NISX20261013_0003823475",
+          "published_at": "2026-10-13T12:21:00+09:00"
+        },
+        {
+          "id": 27,
+          "publisher": "IMAEIL",
+          "title": "사우디 피격, 중동 평가전 추진하는 한국 축구대표팀도 예의주시",
+          "url": "https://www.imaeil.com/page/view/2026101219364394562",
+          "published_at": "2026-10-13T12:19:00+09:00"
+        },
+        {
+          "id": 30,
+          "publisher": "CHOICENEWS",
+          "title": "대우건설, 용인 반도체 단지 4130억 공사 수주...의미는?",
+          "url": "http://www.choicenews.co.kr/news/articleView.html?idxno=172171",
+          "published_at": "2026-10-13T12:18:00+09:00"
+        }
+      ],
+      "source_count": 4
+    }
+  ],
+  "overnight_summary": "뉴욕증시는 S&P 500(-0.06%)과 나스닥(-0.44%)이 소폭 하락한 가운데, 미 10년물 국채금리는 5.24%를 기록하며 대외 금리 경계감이 이어졌습니다.",
+  "overnight_facts": [
+    {
+      "label": "S&P 500",
+      "value": "7,807.24 (-0.06%)"
+    },
+    {
+      "label": "NASDAQ",
+      "value": "27,245.90 (-0.44%)"
+    },
+    {
+      "label": "미 10년물 국채금리",
+      "value": "5.24% (-0.08%)"
+    }
+  ],
+  "stance": {
+    "title": "코스피 6000선 붕괴에 따른 극도의 보수적 리스크 관리",
+    "summary": "지수가 급락하며 6000선이 무너진 상황이므로, 공격적인 매수보다는 수급 안정화와 매크로 지표를 확인하는 보수적 태도가 필요합니다.",
+    "attitude": "보수적 대응",
+    "interest": "AI 반도체 밸류체인의 실적 방어력 및 외국인 수급 동향",
+    "caution": "지수 급락에 따른 신용 매물 출회 및 지정학적 리스크",
+    "execution": "현금 비중을 유지하고 지수 변동성이 진정될 때까지 신규 매매를 자제"
+  },
+  "schedule": [],
+  "weekly": {
+    "title": "최근 7일간 대외 매크로 불안과 코스피 급락세 전개",
+    "summary": "최근 7일간 데이터 분석 결과, 미 국채금리 고점 경계감과 중동 지정학 리스크가 겹치며 국내 증시는 큰 폭의 하락세를 기록했습니다.",
+    "themes": [
+      "코스피 6000선 붕괴 및 패닉셀",
+      "미 금리 및 지정학 노이즈",
+      "AI 반도체 펀더멘털 방어력 점검"
+    ]
+  },
+  "monthly": {
+    "title": "최근 30일간 고금리·지정학 압박 속 반도체 실적 장세 공방",
+    "summary": "데이터 축적 기간 동안 9월 수출 호조와 반도체 밸류체인 모멘텀이 유입되었으나, 고금리 장기화와 지정학적 악재로 인해 지수 상단이 제한되고 변동성이 확대되었습니다.",
+    "watch": [
+      "미 연준 금리 및 국채금리 추이",
+      "반도체 수출 및 실적 가시성",
+      "원/달러 환율 및 외국인 수급"
+    ]
+  },
+  "risks": [
+    "미 국채금리의 추가 상승 및 달러화 강세 전환",
+    "중동 지정학 리스크 악화에 따른 국제유가 급등",
+    "국내 증시 외국인 순매도 장기화 및 수급 이탈"
+  ],
+  "metrics": [
+    {
+      "label": "공포·탐욕",
+      "value": "46 · 중립",
+      "change": "+1",
+      "tone": "neutral",
+      "source": "CNN",
+      "as_of": "2026-10-13T12:27:37.418800+09:00"
+    },
+    {
+      "label": "VIX",
+      "value": "15.21",
+      "change": "+2.49%",
+      "tone": "positive",
+      "source": "Yahoo Finance",
+      "as_of": "2026-10-13T05:15:01+09:00"
+    },
+    {
+      "label": "S&P 500",
+      "value": "7,807.24",
+      "change": "-0.06%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-10-13T05:35:01+09:00"
+    },
+    {
+      "label": "NASDAQ",
+      "value": "27,245.90",
+      "change": "-0.44%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-10-13T06:15:59+09:00"
+    },
+    {
+      "label": "KOSPI",
+      "value": "5,940.68",
+      "change": "-6.95%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-10-13T12:07:30+09:00"
+    },
+    {
+      "label": "KOSDAQ",
+      "value": "810.20",
+      "change": "-4.59%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-10-13T12:07:30+09:00"
+    },
+    {
+      "label": "미 10년물",
+      "value": "5.24%",
+      "change": "-0.08%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-10-13T03:59:53+09:00"
+    },
+    {
+      "label": "달러인덱스",
+      "value": "102.41",
+      "change": "-0.17%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-10-13T12:17:36+09:00"
+    },
+    {
+      "label": "원/달러",
+      "value": "1,343.3원",
+      "change": "+0.02%",
+      "tone": "positive",
+      "source": "Yahoo Finance",
+      "as_of": "2026-10-13T12:27:35+09:00"
+    },
+    {
+      "label": "WTI",
+      "value": "$92.45",
+      "change": "-1.38%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-10-13T12:17:22+09:00"
+    }
+  ]
+}
