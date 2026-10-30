@@ -1,0 +1,266 @@
+{
+  "meta": {
+    "mode": "live",
+    "generated_at": "2026-10-30T11:29:20.066526+09:00",
+    "article_count": 70,
+    "model": "gemini-3.5-flash-lite",
+    "message": "실제 뉴스와 Gemini 분석이 연결되었습니다.",
+    "collection_warnings": [],
+    "error": ""
+  },
+  "headline": "뉴욕 빅테크 AI 회의론 확산 속 코스피 5600선 하회 및 매도 사이드카 발동",
+  "deck": "글로벌 빅테크 주가 급락과 AI 투자 회의론 여파로 국내 반도체 대형주가 동반 하락하며 코스피가 5% 넘게 급락했습니다.",
+  "highlight": "코스피가 5% 넘게 급락했습니다",
+  "change_from_yesterday": "미 S&P 500(-0.30%)과 나스닥(-1.38%)이 하락한 가운데, 코스피는 -5.40% 내린 5,616.94, 코스닥은 -4.47% 내린 719.56을 기록했습니다. 원/달러 환율은 1,338.4원으로 하락했습니다.",
+  "stories": [
+    {
+      "category": "AI·반도체",
+      "impact": "높음",
+      "title": "뉴욕증시 AI 투자 회의론 여파 속 삼성전자·SK하이닉스 등 대형 반도체주 급락",
+      "summary": "구글 모회사 알파벳과 인텔 등 글로벌 빅테크 주가가 급락하고 AI 투자 회의론이 대두되면서, 국내 증시에서도 삼성전자와 SK하이닉스 등 대형 반도체주가 약세를 보이며 지수 하락을 주도했습니다.",
+      "why": "미국 대형 기술주 조정과 AI 투자 속도조절론이 국내 반도체 투자심리에 직접적인 악영향을 미쳤기 때문입니다.",
+      "korea": "달러·원 환율이 1,338.4원으로 소폭 하락했으나 외국인 대규모 매도세가 출회되며 코스피와 코스닥 지수가 4~5%대 급락세를 기록했고 매도 사이드카가 발동되었습니다.",
+      "investor_view": "반도체 대형주의 단기 수급 이탈과 외국인 매도 추이를 모니터링하며 과도한 심리적 불안에 따른 무리한 매도보다는 펀더멘털 기반의 선별적 대응이 필요합니다.",
+      "sources": [
+        {
+          "id": 3,
+          "publisher": "NEWSWAY",
+          "title": "구글 모회사 알파벳 669조원 증발·인텔 20% 폭락…AI 투자 회의론에 국...",
+          "url": "https://www.newsway.co.kr/news/view?ud=2026103011150193326",
+          "published_at": "2026-10-30T11:28:00+09:00"
+        },
+        {
+          "id": 16,
+          "publisher": "NEWSPIM",
+          "title": "코스피 외국인 1조원 던졌다…개미 매수에도 5600선 '위태'",
+          "url": "https://www.newspim.com/news/view/20261030000583",
+          "published_at": "2026-10-30T11:27:00+09:00"
+        },
+        {
+          "id": 19,
+          "publisher": "WOWTV",
+          "title": "외국인·기관 쌍끌이 매도…코스피 5% 넘게 '털썩'",
+          "url": "http://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202610300073&t=NN",
+          "published_at": "2026-10-30T11:26:00+09:00"
+        },
+        {
+          "id": 22,
+          "publisher": "NEWSCLAIM",
+          "title": "코스피 낙폭 확대에 매도 사이드카… 반도체주 동반 급락",
+          "url": "https://www.newsclaim.co.kr/news/articleView.html?idxno=3080795",
+          "published_at": "2026-10-30T11:26:00+09:00"
+        },
+        {
+          "id": 24,
+          "publisher": "KBS",
+          "title": "코스피 5%대 급락…반도체주 동반 하락",
+          "url": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8699724&ref=A",
+          "published_at": "2026-10-30T11:26:00+09:00"
+        }
+      ],
+      "source_count": 5
+    },
+    {
+      "category": "산업",
+      "impact": "보통",
+      "title": "9월 전산업생산 반도체·자동차 호조로 반등…생보업계 등 실물경제 지원 논의",
+      "summary": "반도체 업황 호조와 자동차 산업 생산 정상화에 힘입어 9월 산업 생산이 큰 폭으로 증가한 가운데, 생명보험업계와 주요 금융권은 첨단산업 및 사회기반시설에 대한 장기 자금 공급과 서민금융 지원 방안을 논의했습니다.",
+      "why": "실물 경제 지표 상 반도체와 자동차 중심의 생산 회복세가 확인되었으나 금융·정책적 지원 다변화 요구가 이어지고 있습니다.",
+      "korea": "실물 지표의 개선에도 불구하고 증시 전반의 대외 매크로 노이즈와 외국인 수급 악화로 인해 수혜 업종으로의 온기가 제한되고 있습니다.",
+      "investor_view": "생산 지표 호조를 보이는 반도체 및 자동차 관련 실물 펀더멘털과 정부·금융권의 정책 지원 수혜주를 점검해야 합니다.",
+      "sources": [
+        {
+          "id": 5,
+          "publisher": "STARTUPTODAY",
+          "title": "[이슈] 금융지주·은행, 서민금융 지원 다변화…신한·KB·농협 특화상품...",
+          "url": "https://www.startuptoday.co.kr/news/articleView.html?idxno=817644",
+          "published_at": "2026-10-30T11:28:00+09:00"
+        },
+        {
+          "id": 14,
+          "publisher": "BIZ",
+          "title": "생보업계, 올해 생산적 금융 6.2조 공급…운용규제 개선 촉구",
+          "url": "https://biz.heraldcorp.com/article/10920405?ref=naver",
+          "published_at": "2026-10-30T11:28:00+09:00"
+        },
+        {
+          "id": 27,
+          "publisher": "THEOPINIONTIMES",
+          "title": "반도체·차 '쌍끌이' 폭발…전산업생산 15년6개월 만에 최대 폭 뛰었다",
+          "url": "https://theopiniontimes.news/%eb%b0%98%eb%8f%84%ec%b2%b4%c2%b7%ec%b0%a8-%ec%8c%8d%eb%81%8c%ec%9d%b4-%ed%8f%ad%eb%b0%9c%ec%a0%84%ec%82%b0%ec%97%85%ec%83%9d%ec%82%b0-15%eb%85%846%ea%b0%9c%ec%9b%94-%eb%a7%8c%ec%97%90/",
+          "published_at": "2026-10-30T11:26:00+09:00"
+        }
+      ],
+      "source_count": 3
+    },
+    {
+      "category": "AI·반도체",
+      "impact": "보통",
+      "title": "SK하이닉스 경영진 인사 단행 및 지역별 첨단 반도체·물류 인프라 투자 가속",
+      "summary": "SK하이닉스가 미주총괄 신설과 차선용 미래기술연구원장의 개발총괄 겸임 등 사장단 인사를 단행한 가운데, 광주·영주·부산 등 각 지역에서는 반도체 산단 전력 확보와 스마트 물류센터 구축 등 인프라 투자가 이어지고 있습니다.",
+      "why": "글로벌 반도체 경쟁 심화에 대응하기 위해 주요 기업들이 조직 개편과 인프라 투자를 지속하고 있습니다.",
+      "korea": "대외 주가 하락 및 지수 급락 국면 속에서도 국내 반도체 및 물류 인프라 밸류체인의 중장기 성장 기반은 계속 확충되고 있습니다.",
+      "investor_view": "단기 주가 변동성과 무관하게 중장기 밸류체인 확장이 진행되는 인프라 및 소부장 관련 기업들의 실질 수주 궤적을 확인해야 합니다.",
+      "sources": [
+        {
+          "id": 1,
+          "publisher": "MEDIAFINE",
+          "title": "'반도체 특수가스 거점' 도약하는 영주… '트리븐 가흥' 하반기 분양",
+          "url": "https://www.mediafine.co.kr/news/articleView.html?idxno=94092",
+          "published_at": "2026-10-30T11:28:00+09:00"
+        },
+        {
+          "id": 2,
+          "publisher": "LGHELLOVISION",
+          "title": "한전, \"광주 반도체 산단 전력 확보 속도낼 것\"",
+          "url": "http://news.lghellovision.net/news/articleView.html?idxno=560430",
+          "published_at": "2026-10-30T11:28:00+09:00"
+        },
+        {
+          "id": 10,
+          "publisher": "WORKTODAY",
+          "title": "쿠팡로지스틱스서비스, 부산에 420억원 투자…스마트 물류센터 짓고 670...",
+          "url": "http://www.worktoday.co.kr/news/articleView.html?idxno=91213",
+          "published_at": "2026-10-30T11:28:00+09:00"
+        },
+        {
+          "id": 21,
+          "publisher": "NEWSPRIME",
+          "title": "SK하이닉스, 미주총괄 신설…HBM 주역 안현 사장 배치",
+          "url": "http://www.newsprime.co.kr/news/article.html?no=753075",
+          "published_at": "2026-10-30T11:26:00+09:00"
+        }
+      ],
+      "source_count": 4
+    }
+  ],
+  "overnight_summary": "뉴욕증시에서 구글 모회사 알파벳과 인텔 등 빅테크 주가가 급락하고 AI 투자 회의론이 확산되면서 S&P 500과 나스닥이 각각 하락 마감했습니다. 미 10년물 국채금리는 4.99%로 소폭 하락했고 달러인덱스도 약세를 보였습니다.",
+  "overnight_facts": [
+    {
+      "label": "S&P 500",
+      "value": "7,720.39 (-0.30%)"
+    },
+    {
+      "label": "NASDAQ",
+      "value": "26,184.72 (-1.38%)"
+    },
+    {
+      "label": "미 10년물 금리",
+      "value": "4.99% (-1.11%)"
+    }
+  ],
+  "stance": {
+    "title": "대외 AI 회의론 및 외국인 매도에 따른 변동성 경계 구간",
+    "summary": "미국 기술주 급락과 AI 투자 회의론이 국내 증시에 직격탄을 날린 날입니다. 지수 급락과 매도 사이드카 발동 등 심리적 동요가 커진 만큼 외국인 수급 이탈 경로와 대외 반도체 주가 흐름을 냉정하게 확인해야 합니다.",
+    "attitude": "보수적 리스크 관리",
+    "interest": "외국인 수급 동향 및 반도체 대형주 주가 방어력",
+    "caution": "글로벌 AI 투자 회의론 확산에 따른 투심 악화 및 반대매매 위험",
+    "execution": "지수 급락에 따른 추격 매도를 자제하고 펀더멘털이 검증된 인프라 및 소부장 종목 중심의 선별적 저가 매수 검토"
+  },
+  "schedule": [],
+  "weekly": {
+    "title": "실적 장세와 대외 AI 회의론의 충돌 구간",
+    "summary": "최근 7일간 국내 증시는 주요 기업들의 역대 최대 실적 기대감과 뉴욕증시의 AI 투자 회의론 및 기술주 조정 압력이 혼재되면서 극심한 변동성을 겪었습니다.",
+    "themes": [
+      "글로벌 AI 회의론 및 빅테크 조정",
+      "국내 반도체 대형주 실적과 수급 이탈",
+      "지수 급락 속 매도 사이드카 발동"
+    ]
+  },
+  "monthly": {
+    "title": "코스피 6000선 등락 속 대외 변동성과 실적 펀더멘털 공방",
+    "summary": "최근 30일간 국내 증시는 반도체 수출 호조와 역대 최대 실적 모멘텀에도 불구하고 미국 국채금리 변동성, 중동 리스크, 글로벌 AI 투자 과열 우려가 겹치며 박스권 등락과 급등락을 반복했습니다.",
+    "watch": [
+      "미 연준 금리 경로 및 국채금리 추이",
+      "글로벌 AI 밸류체인 투자 심리 및 실적 가시성",
+      "외국인 수급 및 원/달러 환율 변동성"
+    ]
+  },
+  "risks": [
+    "미국 빅테크 주가의 추가 급락 및 AI 투자 축소 본격화",
+    "외국인 투자자의 지속적인 대규모 순매도와 수급 악화",
+    "국내 증시 반대매매 물량 출회에 따른 하방 압력 확대"
+  ],
+  "metrics": [
+    {
+      "label": "공포·탐욕",
+      "value": "35 · 공포",
+      "change": "-1",
+      "tone": "negative",
+      "source": "CNN",
+      "as_of": "2026-10-30T11:29:20.112773+09:00"
+    },
+    {
+      "label": "VIX",
+      "value": "17.20",
+      "change": "+1.71%",
+      "tone": "positive",
+      "source": "Yahoo Finance",
+      "as_of": "2026-10-30T05:15:01+09:00"
+    },
+    {
+      "label": "S&P 500",
+      "value": "7,720.39",
+      "change": "-0.30%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-10-30T05:32:46+09:00"
+    },
+    {
+      "label": "NASDAQ",
+      "value": "26,184.72",
+      "change": "-1.38%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-10-30T06:15:59+09:00"
+    },
+    {
+      "label": "KOSPI",
+      "value": "5,616.94",
+      "change": "-5.40%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-10-30T11:09:10+09:00"
+    },
+    {
+      "label": "KOSDAQ",
+      "value": "719.56",
+      "change": "-4.47%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-10-30T11:09:10+09:00"
+    },
+    {
+      "label": "미 10년물",
+      "value": "4.99%",
+      "change": "-1.11%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-10-30T03:59:54+09:00"
+    },
+    {
+      "label": "달러인덱스",
+      "value": "101.74",
+      "change": "-0.29%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-10-30T11:19:18+09:00"
+    },
+    {
+      "label": "원/달러",
+      "value": "1,338.4원",
+      "change": "-0.15%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-10-30T11:29:16+09:00"
+    },
+    {
+      "label": "WTI",
+      "value": "$104.08",
+      "change": "+2.04%",
+      "tone": "positive",
+      "source": "Yahoo Finance",
+      "as_of": "2026-10-30T11:19:15+09:00"
+    }
+  ]
+}
