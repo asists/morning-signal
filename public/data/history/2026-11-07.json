@@ -1,0 +1,251 @@
+{
+  "meta": {
+    "mode": "live",
+    "generated_at": "2026-11-07T11:38:53.182290+09:00",
+    "article_count": 70,
+    "model": "gemini-3.5-flash-lite",
+    "message": "실제 뉴스와 Gemini 분석이 연결되었습니다.",
+    "collection_warnings": [],
+    "error": ""
+  },
+  "headline": "글로벌 AI 규제 우려와 증시 불안 속 서학개미 미국 주식 매수 집중",
+  "deck": "미국 중간선거 여파로 빅테크의 AI 투자 및 규제 불확실성이 커진 가운데, 국내 증시 부진 속 환율 안정에 힘입어 서학개미의 해외 주식 매수가 급증했습니다.",
+  "highlight": "빅테크의 AI 투자 및 규제 불확실성이 커진 가운데",
+  "change_from_yesterday": "미국 S&P 500은 +0.31%, 나스닥은 +1.09% 반등했고 미 10년물 국채금리는 4.86%, 원/달러 환율은 1,363.7원으로 상승했습니다.",
+  "stories": [
+    {
+      "category": "AI·반도체",
+      "impact": "높음",
+      "title": "미 중간선거 여파 및 블루웨이브에 따른 AI 규제 강화 우려",
+      "summary": "미국 중간선거에서 민주당이 의회를 장악하면서 빅테크 기업들의 AI 투자 기조와 정치권 유착 관계에 대한 규제 강화 우려가 부각되고 있습니다.",
+      "why": "오픈AI, 메타, 애플 등 주요 빅테크 기업들이 정치권 지형 변화에 따라 AI 규제 및 사업 전략을 재정비해야 하는 상황에 직면했습니다.",
+      "korea": "미국 기술주와 반도체 밸류체인 전반의 변동성이 확대되면서 국내 삼성전자와 SK하이닉스 등 대형주를 비롯한 반도체 수출주에 투자심리 위축 요인으로 작용합니다.",
+      "investor_view": "미국 빅테크의 규제 리스크와 AI 인프라 투자 속도 조절 가능성에 따른 국내 소부장 및 반도체 관련주의 변동성 확대에 유의해야 합니다.",
+      "sources": [
+        {
+          "id": 6,
+          "publisher": "IKBC",
+          "title": "트럼프 밀착했다 '역풍'…오픈AI·메타 '민주당 인사' 영입전",
+          "url": "https://www.ikbc.co.kr/article/view/kbc202611070020",
+          "published_at": "2026-11-07T11:35:00+09:00"
+        },
+        {
+          "id": 18,
+          "publisher": "매일경제",
+          "title": "“괜히 트럼프랑 친한 척했네”…선거 결과에 빅테크들 서둘러 ‘재정비...",
+          "url": "https://www.mk.co.kr/article/12201437",
+          "published_at": "2026-11-07T11:28:00+09:00"
+        },
+        {
+          "id": 24,
+          "publisher": "이데일리",
+          "title": "트럼프에 8000억 쏟아부은 빅테크에 ‘역풍’…공화당도 외면",
+          "url": "https://www.edaily.co.kr/News/Read?newsId=02315686645643424&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article",
+          "published_at": "2026-11-07T11:24:00+09:00"
+        },
+        {
+          "id": 40,
+          "publisher": "NEWSCJ",
+          "title": "美 민주당 '트럼프 밀착' 기업 조사 추진… 애플·메타 등 거론",
+          "url": "https://www.newscj.com/news/articleView.html?idxno=3446717",
+          "published_at": "2026-11-07T11:12:00+09:00"
+        }
+      ],
+      "source_count": 4
+    },
+    {
+      "category": "환율·수급",
+      "impact": "보통",
+      "title": "국내 증시 부진 속 원·달러 환율 안정과 서학개미의 미국 주식 매수 급증",
+      "summary": "코스피 부진 속에서 한때 1500원을 웃돌던 원·달러 환율이 1300원대 중반으로 하락하면서, 투자자들이 환전 부담을 덜고 미국 주식 및 레버리지 ETF 매수를 대거 늘렸습니다.",
+      "why": "국내 증시의 조정 장세와 맞물려 상대적으로 기대수익률이 높다고 판단한 해외 자산으로 개인 투자자들의 자금이 이동하고 있습니다.",
+      "korea": "국내 증시에서 개인 자금이 해외 주식으로 이탈할 경우 국내 수급 기반이 약화되고 외국인 및 기관의 수급 변동성에 더 취약해질 수 있습니다.",
+      "investor_view": "환율 하락세에 따른 해외 자산 투자 흐름을 주시하되, 국내 증시 내 수급 공백 가능성과 환율 변동 추이를 점검해야 합니다.",
+      "sources": [
+        {
+          "id": 3,
+          "publisher": "M-ECONOMYNEWS",
+          "title": "국내 증시 부진에 ‘서학개미’ 미국 주식 매수 급증...일주일 새 3조원...",
+          "url": "https://www.m-economynews.com/news/article.html?no=72720",
+          "published_at": "2026-11-07T11:36:00+09:00"
+        },
+        {
+          "id": 9,
+          "publisher": "HANSBIZ",
+          "title": "코스피 흔들리자 美증시로…서학개미, 일주일 새 3조원 매수",
+          "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=880869",
+          "published_at": "2026-11-07T11:32:00+09:00"
+        },
+        {
+          "id": 25,
+          "publisher": "ECONOMIST",
+          "title": "서학개미 5일간 3조 '폭풍 매입', 70% 이 종목에 '몰빵'했다는데",
+          "url": "https://economist.co.kr/article/view/ecn202611070004",
+          "published_at": "2026-11-07T11:23:00+09:00"
+        }
+      ],
+      "source_count": 3
+    },
+    {
+      "category": "증시",
+      "impact": "보통",
+      "title": "코스피 급락 장세 속 글로벌 IB의 긍정적 장기 전망 공존",
+      "summary": "코스피 5000선이 붕괴되는 등 극심한 변동성이 이어지는 가운데, 글로벌 투자은행(IB) 노무라는 한국 증시의 저평가 매력을 근거로 중장기 목표치를 유지했습니다.",
+      "why": "단기적인 대외 매크로 충격과 수급 이탈에도 불구하고 밸류에이션 매력에 기반한 장기 시각이 공존하고 있습니다.",
+      "korea": "지수 급락에 따른 반대매매 및 투자심리 불안이 상존하나, 중장기 밸류에이션 매력에 따른 저가 매수 유입 여부가 지수 방어의 관건입니다.",
+      "investor_view": "지수 변동성이 큰 구간인 만큼 펀더멘털과 수급 주체의 매수세를 확인하며 보수적인 리스크 관리를 병행해야 합니다.",
+      "sources": [
+        {
+          "id": 7,
+          "publisher": "VIEW",
+          "title": "코스피 5000선 붕괴에도…노무라 \"1만피 간다\"",
+          "url": "https://view.asiae.co.kr/article/2026110711261496170",
+          "published_at": "2026-11-07T11:34:00+09:00"
+        },
+        {
+          "id": 15,
+          "publisher": "연합뉴스",
+          "title": "\"'블루웨이브 쇼크'에 세계증시 시총 하루만에 4천800조원 증발\"",
+          "url": "https://www.yna.co.kr/view/AKR20261107028100073?input=1195m",
+          "published_at": "2026-11-07T11:29:00+09:00"
+        }
+      ],
+      "source_count": 2
+    }
+  ],
+  "overnight_summary": "미국 증시는 반도체주가 반등하며 S&P 500과 나스닥이 상승했으나, 고용지표 호조에 따른 연준의 금리 인상 우려와 중간선거 이후 빅테크 규제 리스크가 혼조세를 불렀습니다.",
+  "overnight_facts": [
+    {
+      "label": "S&P 500",
+      "value": "7,376.86 (+0.31%)"
+    },
+    {
+      "label": "NASDAQ",
+      "value": "24,579.42 (+1.09%)"
+    },
+    {
+      "label": "미 10년물 국채금리",
+      "value": "4.86% (+0.45%)"
+    },
+    {
+      "label": "원/달러 환율",
+      "value": "1,363.7원 (+1.76%)"
+    }
+  ],
+  "stance": {
+    "title": "대외 규제 리스크와 국내 수급 불안 속 보수적 리스크 관리",
+    "summary": "미국 정치 지형 변화에 따른 AI 규제 우려와 국내 증시의 수급 이탈 조짐이 겹친 구간입니다.",
+    "attitude": "보수적",
+    "interest": "미국 빅테크 AI 투자 방향 및 환율·외국인 수급",
+    "caution": "미국 중간선거 이후 AI 규제 심화 및 국내 투자자 자금의 해외 이탈",
+    "execution": "지수 변동성 완화 및 수급 주체들의 매수세 안정이 확인될 때까지 리스크 관리 우선"
+  },
+  "schedule": [],
+  "weekly": {
+    "title": "글로벌 AI 회의론 및 정치적 불확실성에 따른 국내 증시 급락 주간",
+    "summary": "최근 7일간 미국 중간선거 결과와 AI 투자 회의론이 맞물려 글로벌 기술주가 조정을 받았고, 코스피 5000선이 붕괴되며 변동성이 극화되었습니다. (확보된 기간 기준)",
+    "themes": [
+      "미국 중간선거와 AI 규제 리스크",
+      "코스피 5000선 붕괴 및 서킷브레이커 발동",
+      "서학개미의 미국 주식 매수 급증",
+      "원·달러 환율 변동성"
+    ]
+  },
+  "monthly": {
+    "title": "실적 장세와 대외 매크로 노이즈가 충돌하는 변동성 장기화",
+    "summary": "최근 30일간 국내 기업들의 양호한 실적 발표와 수출 호조에도 불구하고, 미 국채금리 변동, 중동 리스크, 미국 정치 이벤트 및 AI 투자 거품론이 겹치며 증시가 큰 폭의 조정을 겪었습니다. (데이터 축적 중)",
+    "watch": [
+      "반도체 및 AI 밸류체인 실적과 투자 속도",
+      "미 연준 금리 경로 및 국채금리 추이",
+      "원·달러 환율 및 외국인 수급 동향",
+      "국내 증시 신용융자 및 반대매매 위험"
+    ]
+  },
+  "risks": [
+    "미국 민주당의 빅테크 AI 규제 및 반독점 조사가 실질적인 실적 둔화로 이어지는 경우",
+    "국내 증시에서 개인 자금의 해외 이탈이 가속화되면서 수급 기반이 무너지는 경우",
+    "미국 고용 지표 호조로 인한 연준의 추가 금리 인상 우려가 재부각되는 경우"
+  ],
+  "metrics": [
+    {
+      "label": "공포·탐욕",
+      "value": "22 · 극단적 공포",
+      "change": "+2",
+      "tone": "negative",
+      "source": "CNN",
+      "as_of": "2026-11-07T11:38:53.528916+09:00"
+    },
+    {
+      "label": "VIX",
+      "value": "25.64",
+      "change": "-9.01%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-11-07T06:15:01+09:00"
+    },
+    {
+      "label": "S&P 500",
+      "value": "7,376.86",
+      "change": "+0.31%",
+      "tone": "positive",
+      "source": "Yahoo Finance",
+      "as_of": "2026-11-07T06:37:09+09:00"
+    },
+    {
+      "label": "NASDAQ",
+      "value": "24,579.42",
+      "change": "+1.09%",
+      "tone": "positive",
+      "source": "Yahoo Finance",
+      "as_of": "2026-11-07T07:15:59+09:00"
+    },
+    {
+      "label": "KOSPI",
+      "value": "5,059.69",
+      "change": "-6.02%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-11-06T20:05:40+09:00"
+    },
+    {
+      "label": "KOSDAQ",
+      "value": "644.27",
+      "change": "-5.03%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-11-06T20:05:40+09:00"
+    },
+    {
+      "label": "미 10년물",
+      "value": "4.86%",
+      "change": "+0.45%",
+      "tone": "positive",
+      "source": "Yahoo Finance",
+      "as_of": "2026-11-07T04:59:56+09:00"
+    },
+    {
+      "label": "달러인덱스",
+      "value": "102.28",
+      "change": "+0.72%",
+      "tone": "positive",
+      "source": "Yahoo Finance",
+      "as_of": "2026-11-07T06:59:59+09:00"
+    },
+    {
+      "label": "원/달러",
+      "value": "1,363.7원",
+      "change": "+1.76%",
+      "tone": "positive",
+      "source": "Yahoo Finance",
+      "as_of": "2026-11-07T06:59:58+09:00"
+    },
+    {
+      "label": "WTI",
+      "value": "$90.34",
+      "change": "-0.20%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-11-07T06:59:58+09:00"
+    }
+  ]
+}
