@@ -1,0 +1,237 @@
+{
+  "meta": {
+    "mode": "live",
+    "generated_at": "2026-11-18T13:05:54.023018+09:00",
+    "article_count": 70,
+    "model": "gemini-3.5-flash-lite",
+    "message": "실제 뉴스와 Gemini 분석이 연결되었습니다.",
+    "collection_warnings": [],
+    "error": ""
+  },
+  "headline": "코스피 5000선 공방 속 반도체 실적 호조와 대외 AI 노이즈",
+  "deck": "엔비디아 호실적과 반도체 수출 호조에 힘입어 코스피가 장초반 반등했으나 5000선 아래로 밀려났습니다. 미 연준의 추가 금리 인상 전망과 환율 변동성에 유의해야 합니다.",
+  "highlight": "코스피가 장초반 반등했으나 5000선 아래로 밀려났습니다",
+  "change_from_yesterday": "미국 S&P 500(-1.03%)과 나스닥(-0.74%)이 하락한 가운데 코스피는 장초반 상승폭을 반납하며 5000선 공방을 벌이고 있고 원/달러 환율은 1,330.7원을 기록했습니다.",
+  "stories": [
+    {
+      "category": "증시·수급",
+      "impact": "높음",
+      "title": "엔비디아 호실적과 반도체 수출 호조에도 5000선 공방 지속",
+      "summary": "코스피가 장초반 엔비디아 실적과 반도체주 상승에 힘입어 2%대 상승 출발했으나 상승폭을 축소하며 5000선 아래로 밀려났습니다. 올해 1~9월 코스피 상장사 영업이익 증가분의 83%가 삼성전자와 SK하이닉스에서 나올 만큼 반도체 쏠림이 뚜렷한 상태입니다.",
+      "why": "글로벌 AI 및 반도체 수요가 견조해 기업 실적을 이끌고 있으나, 대외 AI 규제 리스크와 환율 및 금리 변동성에 따른 수급 이탈이 지수 상단을 누르고 있습니다.",
+      "korea": "반도체 대형주 중심의 실적 모멘텀이 유효하나 지수 전반의 변동성이 커 단기 수급 경로 확인이 필수적입니다.",
+      "investor_view": "외국인 및 기관의 수급 유입 여부와 반도체 섹터의 지지력을 확인해야 합니다.",
+      "sources": [
+        {
+          "id": 4,
+          "publisher": "VEGANNEWS",
+          "title": "코스피 2.62% 상승 출발 뒤 5000선 밑으로 밀려",
+          "url": "https://www.vegannews.co.kr/news/article.html?no=407056",
+          "published_at": "2026-11-18T13:04:00+09:00"
+        },
+        {
+          "id": 27,
+          "publisher": "조선일보",
+          "title": "코스피 상장사 영업익 463조 늘었는데…83%는 삼성전자·SK하이닉스 몫",
+          "url": "https://biz.chosun.com/stock/stock_general/2026/11/18/X7DHSB5CK5E5RJEQZ7ORGWI6WY/?utm_source=naver&utm_medium=original&utm_campaign=biz",
+          "published_at": "2026-11-18T13:02:00+09:00"
+        },
+        {
+          "id": 35,
+          "publisher": "NAEIL",
+          "title": "엔비디아 매출 2배로 늘어…AI 투자엔 신중",
+          "url": "https://www.naeil.com/news/read/609198?ref=naver",
+          "published_at": "2026-11-18T13:02:00+09:00"
+        }
+      ],
+      "source_count": 3
+    },
+    {
+      "category": "금리·환율",
+      "impact": "보통",
+      "title": "미 연준 추가 금리 인상 전망과 달러화 반등",
+      "summary": "미 연준의 물가 안정을 위한 추가 금리 인상 전망이 부각되면서 달러 강세가 나타났습니다. 원/달러 환율은 1,330.7원을 기록했습니다.",
+      "why": "미국의 견조한 경제 지표와 인플레이션 압력에 따른 긴축 경계감이 달러화 가치를 끌어올렸습니다.",
+      "korea": "달러 강세와 환율 변동성은 외국인 수급에 부담으로 작용해 국내 증시의 상방을 제한할 수 있습니다.",
+      "investor_view": "환율 추이에 따른 외국인 자금 이탈 가능성과 채권시장 금리 동향을 점검해야 합니다.",
+      "sources": [
+        {
+          "id": 2,
+          "publisher": "NAEIL",
+          "title": "달러화 반등…트럼프 관세 충격 지웠다",
+          "url": "https://www.naeil.com/news/read/609200?ref=naver",
+          "published_at": "2026-11-18T13:04:00+09:00"
+        },
+        {
+          "id": 24,
+          "publisher": "JOSEILBO",
+          "title": "한은, 11월 금리 올리고 추가 인상 시사할까…채권시장 ‘긴장’",
+          "url": "http://www.joseilbo.com/news/news_read.php?uid=579906&class=18&grp=",
+          "published_at": "2026-11-18T13:03:00+09:00"
+        }
+      ],
+      "source_count": 2
+    },
+    {
+      "category": "AI·규제",
+      "impact": "보통",
+      "title": "미국의 대중 반도체 원격 접근 규제와 엔비디아의 법적 경고",
+      "summary": "미국이 중국 기업의 AI 칩 원격 사용에 대한 규제 법안을 추진하는 가운데 엔비디아가 고객사에 법적 위험을 경고했습니다. 중국 상무부는 이에 반발하며 보복 조치를 예고했습니다.",
+      "why": "미·중 간 기술 패권 갈등과 규제 불확실성이 글로벌 반도체 공급망과 관련 생태계의 투자 심리에 부담을 주고 있습니다.",
+      "korea": "글로벌 공급망과 연계된 국내 반도체 및 AI 밸류체인 전반의 대외 노이즈로 작용할 수 있습니다.",
+      "investor_view": "미·중 무역 갈등 및 반도체 수출입 관련 규제 뉴스가 관련 종목에 미치는 파급을 주의해야 합니다.",
+      "sources": [
+        {
+          "id": 10,
+          "publisher": "AITIMES",
+          "title": "중국, 미국 반도체 원격 접근 규제에 반발…\"강행하면 보복 조치\"",
+          "url": "https://www.aitimes.com/news/articleView.html?idxno=217521",
+          "published_at": "2026-11-18T13:04:00+09:00"
+        },
+        {
+          "id": 25,
+          "publisher": "뉴시스",
+          "title": "엔비디아, 고객사에 경고…\"中 기업 AI칩 원격 사용에 법적 위험\"",
+          "url": "https://www.newsis.com/view/NISX20261118_0003873086",
+          "published_at": "2026-11-18T13:03:00+09:00"
+        }
+      ],
+      "source_count": 2
+    }
+  ],
+  "overnight_summary": "뉴욕증시는 엔비디아의 호실적 발표에도 불구하고 S&P 500(-1.03%)과 나스닥(-0.74%)이 약세를 보였습니다. 미 10년물 국채금리는 5.10%로 하락한 반면 달러인덱스는 103.61로 상승했습니다.",
+  "overnight_facts": [
+    {
+      "label": "S&P 500",
+      "value": "7,340.53 (-1.03%)"
+    },
+    {
+      "label": "NASDAQ",
+      "value": "24,328.38 (-0.74%)"
+    },
+    {
+      "label": "미 10년물 국채금리",
+      "value": "5.10% (-0.35%)"
+    },
+    {
+      "label": "원/달러 환율",
+      "value": "1,330.7원 (-0.37%)"
+    }
+  ],
+  "stance": {
+    "title": "대외 규제 노이즈와 환율 변동성 속 신중한 수급 방어 대응",
+    "summary": "반도체 실적 모멘텀이 유효하나 미·중 규제 리스크와 달러 강세가 지수를 압박하고 있습니다.",
+    "attitude": "보수적 리스크 관리",
+    "interest": "외국인 수급 유입 여부와 환율 안정세",
+    "caution": "미·중 반도체 규제 및 대외 AI 노이즈 심화",
+    "execution": "지수 5000선 안착 여부와 주도 섹터의 수급을 확인하며 선별적으로 접근"
+  },
+  "schedule": [],
+  "weekly": {
+    "title": "최근 7일간 데이터 분석",
+    "summary": "최근 7일간 코스피 5000선 붕괴와 반등 시도가 교차하는 가운데, 엔비디아 관련 노이즈와 미 연준 금리 경계감이 증시 변동성을 확대했습니다.",
+    "themes": [
+      "코스피 5000선 공방 및 서킷브레이커 여파",
+      "엔비디아 젠슨 황 사임 및 AI 규제 리스크",
+      "반도체 수출 호조와 기업 실적 양극화",
+      "환율 상승 및 미 국채금리 변동성"
+    ]
+  },
+  "monthly": {
+    "title": "데이터 축적 중",
+    "summary": "최근 30일 데이터가 축적되는 과정에서 글로벌 AI 투자 회의론과 대형 반도체 실적 호조가 충돌하며 지수의 급등락이 반복되었습니다.",
+    "watch": [
+      "삼성전자·SK하이닉스 등 반도체 실적 및 수출 지표",
+      "미 연준 추가 금리 인상 및 물가 지표",
+      "미·중 반도체 규제 및 지정학적 리스크",
+      "원/달러 환율 및 외국인 수급 추이"
+    ]
+  },
+  "risks": [
+    "미·중 반도체 원격 접근 규제 강화에 따른 공급망 타격",
+    "미 연준의 추가 긴축 시사에 따른 달러 강세 및 환율 급등",
+    "외국인 투자자의 지속적인 대규모 순매도 전환"
+  ],
+  "metrics": [
+    {
+      "label": "공포·탐욕",
+      "value": "25 · 공포",
+      "change": "-6",
+      "tone": "negative",
+      "source": "CNN",
+      "as_of": "2026-11-18T13:05:54.198144+09:00"
+    },
+    {
+      "label": "VIX",
+      "value": "25.46",
+      "change": "+11.13%",
+      "tone": "positive",
+      "source": "Yahoo Finance",
+      "as_of": "2026-11-18T06:15:01+09:00"
+    },
+    {
+      "label": "S&P 500",
+      "value": "7,340.53",
+      "change": "-1.03%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-11-18T06:42:12+09:00"
+    },
+    {
+      "label": "NASDAQ",
+      "value": "24,328.38",
+      "change": "-0.74%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-11-18T07:15:59+09:00"
+    },
+    {
+      "label": "KOSPI",
+      "value": "5,011.43",
+      "change": "+0.86%",
+      "tone": "positive",
+      "source": "Yahoo Finance",
+      "as_of": "2026-11-18T12:45:50+09:00"
+    },
+    {
+      "label": "KOSDAQ",
+      "value": "655.79",
+      "change": "+0.88%",
+      "tone": "positive",
+      "source": "Yahoo Finance",
+      "as_of": "2026-11-18T12:45:50+09:00"
+    },
+    {
+      "label": "미 10년물",
+      "value": "5.10%",
+      "change": "-0.35%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-11-18T04:59:53+09:00"
+    },
+    {
+      "label": "달러인덱스",
+      "value": "103.61",
+      "change": "+0.12%",
+      "tone": "positive",
+      "source": "Yahoo Finance",
+      "as_of": "2026-11-18T12:55:52+09:00"
+    },
+    {
+      "label": "원/달러",
+      "value": "1,330.7원",
+      "change": "-0.37%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-11-18T13:05:49+09:00"
+    },
+    {
+      "label": "WTI",
+      "value": "$84.89",
+      "change": "-1.30%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-11-18T12:55:36+09:00"
+    }
+  ]
+}
