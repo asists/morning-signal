@@ -1,0 +1,244 @@
+{
+  "meta": {
+    "mode": "live",
+    "generated_at": "2026-11-22T11:56:29.655275+09:00",
+    "article_count": 70,
+    "model": "gemini-3.5-flash-lite",
+    "message": "실제 뉴스와 Gemini 분석이 연결되었습니다.",
+    "collection_warnings": [],
+    "error": ""
+  },
+  "headline": "뉴욕증시 AI 투매와 코스피 5000선 붕괴 여파 속 보수적 대응",
+  "deck": "미국 증시의 급락과 국내 코스피 4869선 후퇴 속에서 대외 AI 투매와 환율 상승 압력을 경계해야 합니다.",
+  "highlight": "대외 AI 투매와 환율 상승 압력을 경계해야 합니다.",
+  "change_from_yesterday": "미국 S&P 500(-3.70%)과 나스닥(-5.28%)이 급락하고, 코스피는 4,869.96으로 -5.21%, 코스닥은 645.68로 -5.71% 내렸으며 원/달러 환율은 1,346.1원을 기록했습니다.",
+  "stories": [
+    {
+      "category": "증시·수급",
+      "impact": "높음",
+      "title": "뉴욕증시 AI 관련주 투매와 코스피 5000선 하회",
+      "summary": "미국 뉴욕증시에서 AI 관련주와 앤트로픽·엔비디아 등이 급락한 여파로 코스피가 4800선까지 후퇴하며 시가총액 4000조원이 붕괴되었습니다.",
+      "why": "글로벌 AI 사이클 후반에 대한 수익성 우려와 자금 조달 피로감이 겹치며 기술주 중심의 투매가 확산되었습니다.",
+      "korea": "외국인 수급 이탈과 함께 지수가 급락세를 보이며 국내 증시 전반의 변동성이 극대화되었습니다.",
+      "investor_view": "매수 보류 및 변동성 완화 시그널 확인 중심의 보수적 리스크 관리가 필요합니다.",
+      "sources": [
+        {
+          "id": 3,
+          "publisher": "MBNMONEY",
+          "title": "앤트로픽 상장 후 급등락…월가 '수익성 우려'·실리콘밸리 '낙관론'",
+          "url": "http://mbnmoney.mbn.co.kr/news/view?news_no=MM1005963995",
+          "published_at": "2026-11-22T11:54:00+09:00"
+        },
+        {
+          "id": 11,
+          "publisher": "NEWS1",
+          "title": "5000선 무너진 코스피…美 AI주 급락에 '블랙먼데이' 공포",
+          "url": "https://www.news1.kr/finance/general-stock/6361907",
+          "published_at": "2026-11-22T11:52:00+09:00"
+        },
+        {
+          "id": 27,
+          "publisher": "KMIB",
+          "title": "시총 4000조원 붕괴…코스피 ‘1조 이상’ 종목도 28개 감소",
+          "url": "https://www.kmib.co.kr/article/20261122500267",
+          "published_at": "2026-11-22T11:49:00+09:00"
+        }
+      ],
+      "source_count": 3
+    },
+    {
+      "category": "금리·물가",
+      "impact": "보통",
+      "title": "한국은행 금통위 금리 인상 전망 및 물가·성장률 점검",
+      "summary": "다가오는 한국은행 금융통화위원회에서 전문가 전원이 기준금리 인상(연 3.00%→3.25%)을 전망한 가운데, 고물가 압력과 내년 경제 성장률 전망 조정 여부가 주목받고 있습니다.",
+      "why": "반도체 수출 호조에 따른 가파른 성장 개선세와 물가 압력이 지속되고 있기 때문입니다.",
+      "korea": "금리 인상 기조와 환율 변동성이 시중 금리와 실물경제에 부담으로 작용할 수 있습니다.",
+      "investor_view": "금리 인상 경로와 통화정책 방향성이 채권 및 외환 시장에 미치는 영향을 점검해야 합니다.",
+      "sources": [
+        {
+          "id": 1,
+          "publisher": "VIEW",
+          "title": "[금통위poll]②전문가 90% \"내년에도 3%대 성장\"…高물가 압력 계속된다",
+          "url": "https://view.asiae.co.kr/article/2026112208115204951",
+          "published_at": "2026-11-22T11:54:00+09:00"
+        },
+        {
+          "id": 2,
+          "publisher": "GETNEWS",
+          "title": "한은, 26일 수정 경제전망 발표...반도체 호황에 성장률 상향하나",
+          "url": "https://www.getnews.co.kr/news/articleView.html?idxno=888017",
+          "published_at": "2026-11-22T11:54:00+09:00"
+        },
+        {
+          "id": 9,
+          "publisher": "VIEW",
+          "title": "[금통위poll]①11월 금리 인상…향후 관건은 \"점도표 3.75%\" 주목",
+          "url": "https://view.asiae.co.kr/article/2026112210490320195",
+          "published_at": "2026-11-22T11:53:00+09:00"
+        }
+      ],
+      "source_count": 3
+    },
+    {
+      "category": "산업·정책",
+      "impact": "낮음",
+      "title": "정부의 AI 기반 인프라 및 지역 성장엔진 추진",
+      "summary": "정부가 울산 SK AI 데이터센터 현장을 방문하고 반도체·로봇 등 권역별 25개 성장엔진 산업의 실행계획을 연내 마련하기로 했습니다.",
+      "why": "AI 데이터센터가 반도체 주요 수요처이자 피지컬 AI를 뒷받침하는 핵심 인프라 역할을 하기 때문입니다.",
+      "korea": "관련 첨단 인프라 및 반도체 밸류체인에 대한 중장기 정책 지원이 유효합니다.",
+      "investor_view": "단기 투매 국면과 별개로 정부 정책 수혜가 예상되는 핵심 인프라 및 밸류체인 동향을 모니터링해야 합니다.",
+      "sources": [
+        {
+          "id": 18,
+          "publisher": "BIZ",
+          "title": "반도체·이차전지·로봇 등 25개 ‘지역 성장엔진’…연내 지원 로드맵...",
+          "url": "https://biz.sbs.co.kr/article_hub/20000348014?division=NAVER",
+          "published_at": "2026-11-22T11:51:00+09:00"
+        },
+        {
+          "id": 22,
+          "publisher": "KIHOILBO",
+          "title": "이 대통령, 울산 SK 인공지능 데이터센터 건설 현장 방문…2주 연속 메가...",
+          "url": "https://www.kihoilbo.co.kr/news/articleView.html?idxno=3041642",
+          "published_at": "2026-11-22T11:50:00+09:00"
+        }
+      ],
+      "source_count": 2
+    }
+  ],
+  "overnight_summary": "미국 증시는 AI 투매와 수익성 우려 속에서 S&P 500(-3.70%)과 나스닥(-5.28%)이 급락했고, 원/달러 환율은 1,346.1원으로 상승했습니다.",
+  "overnight_facts": [
+    {
+      "label": "S&P 500",
+      "value": "6,910.39 (-3.70%)"
+    },
+    {
+      "label": "NASDAQ",
+      "value": "22,617.73 (-5.28%)"
+    },
+    {
+      "label": "원/달러",
+      "value": "1,346.1원 (+1.18%)"
+    }
+  ],
+  "stance": {
+    "title": "대외 AI 투매와 환율 상승 속 보수적 리스크 관리",
+    "summary": "뉴욕증시 AI 기술주 급락과 코스피 5000선 붕괴에 따라 철저한 수급 방어력 확인과 보수적인 포트폴리오 대응이 요구됩니다.",
+    "attitude": "보수적",
+    "interest": "금통위 금리 결정 및 외국인 수급 동향",
+    "caution": "미국 AI 투매 확산 및 환율 추가 상승",
+    "execution": "신규 매수 자제 및 리스크 관리 중심 대응"
+  },
+  "schedule": [
+    {
+      "time": "11월 26일",
+      "event": "한국은행 금융통화위원회 기준금리 결정",
+      "note": "금리 인상(연 3.00%→3.25%) 전망 및 수정 경제전망 발표 예정"
+    }
+  ],
+  "weekly": {
+    "title": "대외 AI 노이즈와 지수 급락에 따른 변동성 장세",
+    "summary": "최근 7일간 데이터 기준, 뉴욕증시 AI 투매와 규제 강화 우려가 겹치며 코스피가 5000선을 하회하는 등 극심한 변동성과 수급 이탈이 나타났습니다.",
+    "themes": [
+      "AI 투자 회의론 및 기술주 투매",
+      "코스피 5000선 붕괴 및 외국인 매도",
+      "금리 인상 경계감 및 환율 상승"
+    ]
+  },
+  "monthly": {
+    "title": "글로벌 AI 밸류체인 조정과 국내 증시 하방 압력 심화",
+    "summary": "최근 30일 데이터 기준, 반도체 수출 호조에도 불구하고 앤트로픽 IPO 및 엔비디아 관련 노이즈 등 대외 AI 리스크가 부각되며 지수가 고점 대비 큰 폭으로 하락했습니다.",
+    "watch": [
+      "미국 빅테크 AI 투자 및 수익성 우려 추이",
+      "국내 금통위 금리 결정 및 통화정책 방향",
+      "원/달러 환율 변동과 외국인 수급 유출입"
+    ]
+  },
+  "risks": [
+    "미국 AI 관련주 추가 폭락 및 글로벌 증시 시스템 리스크 확산",
+    "원/달러 환율 급등에 따른 외국인 자금의 추가 대거 이탈",
+    "한국은행 금통위의 예상보다 매파적인 금리 결정"
+  ],
+  "metrics": [
+    {
+      "label": "공포·탐욕",
+      "value": "10 · 극단적 공포",
+      "change": "-9",
+      "tone": "negative",
+      "source": "CNN",
+      "as_of": "2026-11-22T11:56:29.694824+09:00"
+    },
+    {
+      "label": "VIX",
+      "value": "35.89",
+      "change": "+26.20%",
+      "tone": "positive",
+      "source": "Yahoo Finance",
+      "as_of": "2026-11-21T06:15:01+09:00"
+    },
+    {
+      "label": "S&P 500",
+      "value": "6,910.39",
+      "change": "-3.70%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-11-21T06:35:54+09:00"
+    },
+    {
+      "label": "NASDAQ",
+      "value": "22,617.73",
+      "change": "-5.28%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-11-21T07:15:59+09:00"
+    },
+    {
+      "label": "KOSPI",
+      "value": "4,869.96",
+      "change": "-5.21%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-11-20T20:05:30+09:00"
+    },
+    {
+      "label": "KOSDAQ",
+      "value": "645.68",
+      "change": "-5.71%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-11-20T20:05:30+09:00"
+    },
+    {
+      "label": "미 10년물",
+      "value": "4.91%",
+      "change": "-2.77%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-11-21T04:59:55+09:00"
+    },
+    {
+      "label": "달러인덱스",
+      "value": "103.84",
+      "change": "-0.06%",
+      "tone": "negative",
+      "source": "Yahoo Finance",
+      "as_of": "2026-11-21T06:59:59+09:00"
+    },
+    {
+      "label": "원/달러",
+      "value": "1,346.1원",
+      "change": "+1.18%",
+      "tone": "positive",
+      "source": "Yahoo Finance",
+      "as_of": "2026-11-21T07:36:29+09:00"
+    },
+    {
+      "label": "WTI",
+      "value": "$83.41",
+      "change": "+0.24%",
+      "tone": "positive",
+      "source": "Yahoo Finance",
+      "as_of": "2026-11-21T06:59:59+09:00"
+    }
+  ]
+}
